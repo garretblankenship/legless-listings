@@ -26,6 +26,18 @@
         <%= form.text_field :diet %>
     </div>
     <div>
+        <%= form.label :breed_id %>
+        <%= form.select(:breed_id, @breeds.map{|b| [b.name, b.id]}) %>
+    </div>
+
+    <% @sexes.each do |option| %>
+        <div>
+            <%= form.radio_button :sex, option %>
+            <%= form.label "sex_#{option}".to_sym, option %>
+        <div>
+    <% end %>
+
+    <div>
         <%= form.submit %>
     </div>
 <% end %>
