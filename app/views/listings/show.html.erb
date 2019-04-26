@@ -1,3 +1,17 @@
 <h1><%= @listing.title %></h1>
 
-<button> Pay Deposit $<%= number_with_precision(@listing.deposit / 100.0, precision: 2 ) %></button>
+<button id="stripePayment"> Pay Deposit $<%= number_with_precision(@listing.deposit / 100.0, precision: 2 ) %></button>
+
+<script>
+    document.getElementById("stripePayment").addEventListener("click", function() {    
+        var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
+
+        stripe.redirectToCheckout({
+            sessionId: '<%= @stripe_session_id %>',
+        }).then(function (result) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer
+            // using `result.error.message`.
+        });
+    });
+</script>
