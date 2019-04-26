@@ -7,5 +7,6 @@
         <p><%= listing.description %></p>
         <p><%= listing.breed.name %></p>
         <%= link_to "edit", edit_listing_path(listing.id) %>
+        <%= link_to "show", listing_path(listing.id) %>
     </div>
 <% end %>

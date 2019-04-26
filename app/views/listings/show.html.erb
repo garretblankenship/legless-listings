@@ -1,0 +1,3 @@
+<h1><%= @listing.title %></h1>
+
+<button> Pay Deposit $<%= number_with_precision(@listing.deposit / 100.0, precision: 2 ) %></button>

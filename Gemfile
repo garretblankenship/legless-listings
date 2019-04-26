@@ -66,3 +66,5 @@ gem "snake_names", "~> 0.0.0"
 gem "aws-sdk-s3", "~> 1.36"
 
 gem "devise", "~> 4.6"
+
+gem "stripe", "~> 4.16"
