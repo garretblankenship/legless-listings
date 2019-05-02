@@ -6,7 +6,8 @@ class PaymentsController < ApplicationController
         payment_id=  params[:data][:object][:payment_intent]
         payment = Stripe::PaymentIntent.retrieve(payment_id)
         listing_id = payment.metadata.listing_id
-        p listing_id
+        p "listing id " + listing_id
+        p "user id " + user_id
         render json: ""
     end
 
